@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dashboard/flutter_dashboard.dart';
 import '../../../../../themes/app_theme.dart';
+import '../../social_media_auth_button.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetResponsiveView<LoginController> {
@@ -474,6 +475,16 @@ class LoginView extends GetResponsiveView<LoginController> {
                               color: AppColors.grey,
                             ),
                   ),
+                ),
+              ),
+            ),
+            const Divider(),
+            Center(
+              child: Flexible(
+                child: AuthSocialMediaButtons(
+                  isProcessing: (bool _processing) {
+                    controller.isAuthProcessing(_processing);
+                  },
                 ),
               ),
             ),

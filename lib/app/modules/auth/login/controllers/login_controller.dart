@@ -6,7 +6,7 @@ import '../../../../constants/constants.dart';
 
 class LoginController extends GetxController {
   final AuthService _authService = AuthService.to;
-
+  final RxBool isAuthProcessing = false.obs;
   final FormGroup emailLoginForm = FormGroup(
     {
       'email': FormControl<String>(

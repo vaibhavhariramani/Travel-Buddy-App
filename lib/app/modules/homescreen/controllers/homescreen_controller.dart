@@ -20,4 +20,6 @@ class HomescreenController extends GetxController {
   }
 
   void increment() => count.value++;
+
+  void changeTab(int i) {}
 }

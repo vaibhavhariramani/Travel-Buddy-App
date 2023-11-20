@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../services/auth_service.dart';
+import '../../../themes/app_theme.dart';
+import '../../routes/app_pages.dart';
+import '../homescreen/controllers/homescreen_controller.dart';
 import 'authecation/controllers/auth_controller.dart';
 
 class AuthSocialMediaButtons extends GetWidget<AuthService> {
@@ -24,14 +27,14 @@ class AuthSocialMediaButtons extends GetWidget<AuthService> {
     Get.log("2" + _afterLoginRoute.toString());
     if (_afterLoginRoute != null) {
       if (_afterLoginRoute == "2" || _afterLoginRoute == "3") {
-        Get.find<DashboardController>()
+        Get.find<HomescreenController>()
             .changeTab(int.tryParse(_afterLoginRoute)!);
         Get.back();
       } else {
         Get.back();
       }
     } else {
-      Get.offNamed(Routes.DASHBOARD);
+      Get.offNamed(Routes.HOMESCREEN);
     }
   }
 

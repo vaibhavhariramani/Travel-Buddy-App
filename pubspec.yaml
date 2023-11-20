@@ -59,6 +59,7 @@ flutter:
   assets:
     - assets/login_image.png
     - assets/
+    - assets/icons/
     - images/
     - assets/cat_and_dog/
     - assets/face_mask_detection/

@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 class AuthController extends GetxController {
   //TODO: Implement AuthController
-
+  RxBool mobileloginbool = false.obs;
   final count = 0.obs;
   @override
   void onInit() {
