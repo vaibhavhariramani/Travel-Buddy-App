@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dashboard/flutter_dashboard.dart';
+import 'package:iconly/iconly.dart';
 import '../../../../../themes/app_theme.dart';
+import '../../../../routes/app_pages.dart';
 import '../../social_media_auth_button.dart';
 import '../controllers/login_controller.dart';
 
@@ -102,7 +104,8 @@ class LoginView extends GetResponsiveView<LoginController> {
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
                                               // if (screen.isDesktop) const Spacer(),
-                                              ...buildSimpleContent(),
+                                              ...buildSimpleContent(
+                                                  screen.context),
                                               Divider(
                                                 color: Colors.transparent,
                                                 height:
@@ -229,7 +232,50 @@ class LoginView extends GetResponsiveView<LoginController> {
         physics: const ClampingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
-            child: buildBrandLogo(screen.isDesktop),
+            child: Column(
+              children: [
+                buildBrandLogo(screen.isDesktop),
+                MaterialButton(
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  padding: EdgeInsets.zero,
+                  onPressed: () {
+                    //   String? _afterLoginRoute;
+                    //   if (Get.parameters.containsKey('then')) {
+                    //     _afterLoginRoute = Get.parameters['then'];
+                    //   }
+                    //   if (_afterLoginRoute != null) {
+                    //     if (_afterLoginRoute == "2" ||
+                    //         _afterLoginRoute == "3") {
+                    //       Get.find<DashboardController>()
+                    //           .changeTab(int.tryParse(_afterLoginRoute)!);
+                    //       Get.back();
+                    //     } else {
+                    //       Get.back();
+                    //     }
+                    //   } else {
+                    Get.to(Routes.HOMESCREEN);
+                    //   }
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Skip Sign In",
+                        textScaleFactor: 1.0,
+                        style: Theme.of(context).textTheme.button?.copyWith(
+                              color: Theme.of(context).disabledColor,
+                            ),
+                      ),
+                      Icon(
+                        IconlyLight.arrow_right_2,
+                        size: Theme.of(context).textTheme.button?.fontSize,
+                        color: Theme.of(context).disabledColor,
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
           SliverVisibility(
             visible: controller.isLogingIn.isTrue,
@@ -494,15 +540,62 @@ class LoginView extends GetResponsiveView<LoginController> {
     );
   }
 
-  List<Widget> buildSimpleContent() {
+  List<Widget> buildSimpleContent(BuildContext context) {
     return [
-      Text(
-        "Log in",
-        textScaleFactor: Get.textScaleFactor,
-        style: Theme.of(screen.context).textTheme.headline4?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: Get.isDarkMode ? Get.theme.primaryColor : Colors.black,
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "Log in",
+            textScaleFactor: Get.textScaleFactor,
+            style: Theme.of(screen.context).textTheme.headline4?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: Get.isDarkMode ? Get.theme.primaryColor : Colors.black,
+                ),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: MaterialButton(
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              padding: EdgeInsets.zero,
+              onPressed: () {
+                //   String? _afterLoginRoute;
+                //   if (Get.parameters.containsKey('then')) {
+                //     _afterLoginRoute = Get.parameters['then'];
+                //   }
+                //   if (_afterLoginRoute != null) {
+                //     if (_afterLoginRoute == "2" ||
+                //         _afterLoginRoute == "3") {
+                //       Get.find<DashboardController>()
+                //           .changeTab(int.tryParse(_afterLoginRoute)!);
+                //       Get.back();
+                //     } else {
+                //       Get.back();
+                //     }
+                //   } else {
+                Get.to(Routes.HOMESCREEN);
+                //   }
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "Skip Sign In",
+                    textScaleFactor: 1.0,
+                    style: Theme.of(context).textTheme.button?.copyWith(
+                          color: Theme.of(context).disabledColor,
+                        ),
+                  ),
+                  Icon(
+                    IconlyLight.arrow_right_2,
+                    size: Theme.of(context).textTheme.button?.fontSize,
+                    color: Theme.of(context).disabledColor,
+                  )
+                ],
+              ),
             ),
+          ),
+        ],
       ),
       const Divider(
         color: Colors.transparent,

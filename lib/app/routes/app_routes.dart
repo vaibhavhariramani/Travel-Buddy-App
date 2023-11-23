@@ -15,6 +15,7 @@ abstract class Routes {
       '$LOGIN?then=${Uri.encodeQueryComponent(afterSuccessfulLogin)}';
   static const RECIPE = _Paths.RECIPE;
   static const REGISTRATION = _Paths.REGISTRATION;
+  static const DASHBOARD = _Paths.DASHBOARD;
 }
 
 abstract class _Paths {
@@ -29,4 +30,5 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const RECIPE = '/recipe';
   static const REGISTRATION = '/registration';
+  static const DASHBOARD = '/dashboard';
 }

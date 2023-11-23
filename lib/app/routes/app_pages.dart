@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_dashboard/flutter_dashboard.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
@@ -11,6 +12,8 @@ import '../modules/auth/login/bindings/login_binding.dart';
 import '../modules/auth/login/views/login_view.dart';
 import '../modules/auth/registration/bindings/registration_binding.dart';
 import '../modules/auth/registration/views/registration_view.dart';
+import '../modules/dashboard/bindings/dashboard_binding.dart';
+import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/finance/bindings/finance_binding.dart';
 import '../modules/finance/views/finance_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -79,6 +82,11 @@ class AppPages {
       page: () => const RecipeView(),
       binding: RecipeBinding(),
     ),
+    GetPage(
+      name: _Paths.DASHBOARD,
+      page: () => const DashboardView(),
+      binding: DashboardBinding(),
+    ),
   ];
   static final List<GetPage> rootPages = [
     GetPage(
@@ -99,11 +107,11 @@ class AppPages {
       FlutterDashboardItem(
         title: 'Dashboard',
         page: GetPage(
-          name: _Paths.HOME,
+          name: _Paths.DASHBOARD,
           page: () {
-            return HomeView();
+            return DashboardView();
           },
-          binding: HomeBinding(),
+          binding: DashboardBinding(),
           middlewares: [
             EnsureAuthenticated(),
           ],
@@ -148,27 +156,27 @@ class AppPages {
       //   // ],
       // ),
 
-      // FlutterDashboardItem(
-      //   title: 'Action Log',
-      //   page: GetPage(
-      //     name: _Paths.ACTION_LOG,
-      //     page: () {
-      //       deletionStatusController.isVisible.value = false;
-      //       return ActionLogView();
-      //     },
-      //     binding: ActionLogBinding(),
-      //     middlewares: [
-      //       EnsureAuthenticated(),
-      //     ],
-      //   ),
-      //   icon: const Icon(
-      //     Icons.visibility_outlined,
-      //   ),
-      //   selectedIcon: Icon(
-      //     Icons.visibility_rounded,
-      //     color: Theme.of(context).scaffoldBackgroundColor,
-      //   ),
-      // ),
+      FlutterDashboardItem(
+        title: 'Splitwise',
+        page: GetPage(
+          name: _Paths.SPLITWISE,
+          page: () {
+            // deletionStatusController.isVisible.value = false;
+            return SplitwiseView();
+          },
+          binding: SplitwiseBinding(),
+          middlewares: [
+            EnsureAuthenticated(),
+          ],
+        ),
+        icon: const Icon(
+          Icons.visibility_outlined,
+        ),
+        selectedIcon: Icon(
+          Icons.visibility_rounded,
+          color: Theme.of(context).scaffoldBackgroundColor,
+        ),
+      ),
 
       // Remove this only after deletion status is fucntional
 

@@ -41,8 +41,8 @@ class FinanceView extends GetView<FinanceController> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
+                height: Get.height,
+                width: Get.width,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -56,8 +56,8 @@ class FinanceView extends GetView<FinanceController> {
                           cards(
                             colour: Color(0xFF1A95B6),
                             img: 'images/budget.png',
-                            height: 120,
-                            width: 150,
+                            height: 0.5,
+                            width: 0.5,
                             title: 'Personal',
                             subtitle: 'Finance',
                             wid: PersonalFinanceView(),
@@ -65,8 +65,8 @@ class FinanceView extends GetView<FinanceController> {
                           cards(
                             colour: Color(0xFFE67E49),
                             img: 'images/roommates.png',
-                            height: 120,
-                            width: 150,
+                            height: 0.5,
+                            width: 0.5,
                             title: ' Group',
                             subtitle: 'Finance',
                             wid: HomescreenView(),

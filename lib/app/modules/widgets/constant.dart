@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class cards extends StatelessWidget {
   cards(
@@ -21,7 +22,7 @@ class cards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 6),
       child: GestureDetector(
         onTap: () => Navigator.push(
           context,
@@ -32,8 +33,8 @@ class cards extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              height: MediaQuery.of(context).size.height * 0.5,
-              width: MediaQuery.of(context).size.width * 0.3,
+              height: Get.height * height,
+              width: Get.width * width,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
                 color: colour,
@@ -53,8 +54,8 @@ class cards extends StatelessWidget {
                   img,
                 ),
                 fit: BoxFit.fitHeight,
-                height: height,
-                width: width,
+                height: Get.height * height,
+                width: Get.width * width,
               ),
             ),
             Padding(
